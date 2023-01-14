@@ -10,6 +10,8 @@ public interface DataService {
 
     List<DataRequest> getDataByListId(List<Long> id);
 
+    Optional<DataRequest> getDataByName(String username);
+
     void saveData (DataRequest data);
 
 }

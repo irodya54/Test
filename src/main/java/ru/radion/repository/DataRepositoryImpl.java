@@ -21,6 +21,11 @@ public class DataRepositoryImpl implements DataRepository{
     }
 
     @Override
+    public Optional<DataRequest> getDataByName(String username) {
+        return REQUEST_LIST.stream().filter(req -> username.equals(req.getName())).findFirst();
+    }
+
+    @Override
     public List<DataRequest> getDataByListId(List<Long> idList) {
         List<DataRequest> dataRequests = new ArrayList<>();
         for (Long id : idList) {

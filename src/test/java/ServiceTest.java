@@ -1,7 +1,7 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnit;
 import ru.radion.entity.DataRequest;
 import ru.radion.repository.DataRepository;
 import ru.radion.repository.DataRepositoryImpl;
@@ -12,19 +12,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ServiceTest {
-
+    @Mock
     private static final DataRepository repositoryMock = Mockito.mock(DataRepositoryImpl.class);
-    private DataService dataService;
+
+    @InjectMocks
+    private DataService dataService = new DataServiceImpl(repositoryMock);
 
 
     @Test
     void getByIdWithWhenTest() {
         Optional<DataRequest> request = Optional.of(new DataRequest(1L, "Test", 30));
         Mockito.when(repositoryMock.getDataById(1L)).thenReturn(request);
-        dataService = new DataServiceImpl(repositoryMock);
 
         Optional<DataRequest> mayBeData = dataService.getDataById(1L);
 
@@ -36,11 +38,9 @@ public class ServiceTest {
     }
 
     @Test
-    void getByIdWithDo () {
+    void getByIdWithDo() {
         Optional<DataRequest> request = Optional.of(new DataRequest(1L, "Test", 30));
         Mockito.doReturn(request).when(repositoryMock).getDataById(1L);
-
-        dataService = new DataServiceImpl(repositoryMock);
 
         Optional<DataRequest> mayBeData = dataService.getDataById(1L);
 
@@ -59,10 +59,8 @@ public class ServiceTest {
         testListRequests.add(requestOlya);
 
         Mockito.when(repositoryMock.getDataByListId(Mockito
-                                                .argThat(arg -> arg == null || arg.size() < 3)))
+                        .argThat(arg -> arg == null || arg.size() < 3)))
                 .thenReturn(testListRequests);
-
-        dataService = new DataServiceImpl(repositoryMock);
 
         List<Long> listId = new ArrayList<>();
         listId.add(1L);
@@ -72,7 +70,16 @@ public class ServiceTest {
         assertTrue(dataByListId.size() == 2);
         assertEquals(dataByListId.get(0), requestRadion);
         assertEquals(dataByListId.get(1), requestOlya);
+    }
 
+    @Test
+    void getDataByUsernameTest() {
+        Optional<DataRequest> requestRadion = Optional.of(new DataRequest(1L, "Radion", 31));
+        Mockito.when(repositoryMock.getDataByName(Mockito.any())).thenReturn(requestRadion);
+        Optional<DataRequest> mayBeRadion = dataService.getDataByName("Radion");
+
+        assertTrue(mayBeRadion.isPresent());
+        assertEquals(mayBeRadion, requestRadion);
     }
 
 }
