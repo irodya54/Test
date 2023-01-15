@@ -5,10 +5,10 @@
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.24/13a394eed5c4f9efb2a6d956e2086f1d81e857d9/lombok-1.18.24.jar" />
+          <entry name="$PROJECT_DIR$/../../../../../Java/gradle-7.6/bin/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.24/13a394eed5c4f9efb2a6d956e2086f1d81e857d9/lombok-1.18.24.jar" />
         </processorPath>
-        <module name="Test.main" />
-        <module name="Test.test" />
+        <module name="ru.radion.Test.main" />
+        <module name="ru.radion.Test.test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8" />
