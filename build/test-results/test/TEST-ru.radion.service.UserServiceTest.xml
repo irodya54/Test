@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.radion.service.UserServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-01-15T13:31:32" hostname="ASROCK-PC35" time="0.069">
+  <properties/>
+  <testcase name="loginFailIfPasswordIsNotCorrect()" classname="ru.radion.service.UserServiceTest" time="0.015"/>
+  <testcase name="loginSuccessIfUserExist()" classname="ru.radion.service.UserServiceTest" time="0.001"/>
+  <testcase name="getAllIsNotEmpty()" classname="ru.radion.service.UserServiceTest" time="0.042"/>
+  <testcase name="throwIllegalArgumentExceptionIfNameOrPasswordIsNull()" classname="ru.radion.service.UserServiceTest" time="0.002"/>
+  <testcase name="ConvertedToMapById()" classname="ru.radion.service.UserServiceTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

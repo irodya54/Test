@@ -1,9 +1,10 @@
 package ru.radion.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@lombok.Data
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 

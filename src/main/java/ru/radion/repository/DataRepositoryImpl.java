@@ -5,9 +5,8 @@ import ru.radion.entity.DataRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
-public class DataRepositoryImpl implements DataRepository{
+public class DataRepositoryImpl implements ru.radion.repository.DataRepository {
     private static final List<DataRequest> REQUEST_LIST = new ArrayList<>();
 
     static {
