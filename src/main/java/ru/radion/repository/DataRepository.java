@@ -9,6 +9,8 @@ public interface DataRepository {
 
     Optional<DataRequest> getDataById(Long id);
 
+    Optional<DataRequest> getDataByName(String username);
+
     List<DataRequest> getDataByListId(List<Long> id);
 
     void saveData (DataRequest data);

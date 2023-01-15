@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-01-14T09:28:12" hostname="RMERZLYAKOV-NB" time="0.03">
+  <properties/>
+  <testcase name="getDataByUsernameTest()" classname="ServiceTest" time="0.024"/>
+  <testcase name="getByIdWithWhenTest()" classname="ServiceTest" time="0.001"/>
+  <testcase name="getDataByListIdTest()" classname="ServiceTest" time="0.001"/>
+  <testcase name="getByIdWithDo()" classname="ServiceTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

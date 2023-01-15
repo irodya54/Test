@@ -1,6 +1,9 @@
+<<<<<<< HEAD:src/test/java/ru/radion/service/ServiceTest.java
 package ru.radion.service;
 
 import org.junit.jupiter.api.BeforeEach;
+=======
+>>>>>>> 6e523f4 (add method and two branches):src/test/java/ServiceTest.java
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -13,15 +16,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ServiceTest {
+<<<<<<< HEAD:src/test/java/ru/radion/service/ServiceTest.java
 
     @InjectMocks
     private DataRepository repositoryMock = Mockito.mock(DataRepositoryImpl.class);
 
     @Mock
     private DataService dataService;
+=======
+    @Mock
+    private static final DataRepository repositoryMock = Mockito.mock(DataRepositoryImpl.class);
+
+    @InjectMocks
+    private DataService dataService = new DataServiceImpl(repositoryMock);
+>>>>>>> 6e523f4 (add method and two branches):src/test/java/ServiceTest.java
 
     @BeforeEach
     void prepare() {
@@ -69,7 +81,10 @@ public class ServiceTest {
                         .argThat(arg -> arg == null || arg.size() < 3)))
                 .thenReturn(testListRequests);
 
+<<<<<<< HEAD:src/test/java/ru/radion/service/ServiceTest.java
 
+=======
+>>>>>>> 6e523f4 (add method and two branches):src/test/java/ServiceTest.java
         List<Long> listId = new ArrayList<>();
         listId.add(1L);
         listId.add(2L);
@@ -78,5 +93,18 @@ public class ServiceTest {
         assertTrue(dataByListId.size() == 2);
         assertEquals(dataByListId.get(0), requestRadion);
         assertEquals(dataByListId.get(1), requestOlya);
+<<<<<<< HEAD:src/test/java/ru/radion/service/ServiceTest.java
+=======
+    }
+
+    @Test
+    void getDataByUsernameTest() {
+        Optional<DataRequest> requestRadion = Optional.of(new DataRequest(1L, "Radion", 31));
+        Mockito.when(repositoryMock.getDataByName(Mockito.any())).thenReturn(requestRadion);
+        Optional<DataRequest> mayBeRadion = dataService.getDataByName("Radion");
+
+        assertTrue(mayBeRadion.isPresent());
+        assertEquals(mayBeRadion, requestRadion);
+>>>>>>> 6e523f4 (add method and two branches):src/test/java/ServiceTest.java
     }
 }

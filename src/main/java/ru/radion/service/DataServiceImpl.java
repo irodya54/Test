@@ -25,6 +25,11 @@ public class DataServiceImpl implements DataService{
     }
 
     @Override
+    public Optional<DataRequest> getDataByName(String username) {
+        return repository.getDataByName(username);
+    }
+
+    @Override
     public void saveData(DataRequest data) {
         repository.saveData(data);
     }
